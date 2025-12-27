@@ -78,10 +78,9 @@ function rectangleCollision({rectangle1, rectangle2}){
 function playerMovement(){
     let moving = true
     if (keys.w.pressed){
-       for (let i = 0; i < boundaries.length; i++){
-        const boundary = boundaries[i]
-        if (rectangleCollision({rectangle1: player, rectangle2: {...boundary,position: {x:boundary.position.x,y:boundary.position.y +3}}}))   
-            {
+        for (let i = 0; i < boundaries.length; i++){
+            const boundary = boundaries[i]
+            if (rectangleCollision({rectangle1: player, rectangle2: {...boundary,position: {x:boundary.position.x,y:boundary.position.y +3}}})){
                 console.log('colliding')
                 moving = false
                 break
@@ -100,9 +99,9 @@ function playerMovement(){
                     break
                 }
         }
-            if (moving){
-                player.position.y = player.position.y + 3
-            }
+        if (moving){
+            player.position.y = player.position.y + 3
+        }
     } else if (keys.a.pressed){
         for (let i = 0; i < boundaries.length; i++){
             const boundary = boundaries[i]
@@ -113,9 +112,9 @@ function playerMovement(){
                     break
                 }
         }
-            if (moving){
-                player.position.x = player.position.x - 3
-            }
+        if (moving){
+            player.position.x = player.position.x - 3
+        }
     } else if (keys.d.pressed){
         for (let i = 0; i < boundaries.length; i++){
             const boundary = boundaries[i]
@@ -126,27 +125,22 @@ function playerMovement(){
                     break
                 }
         }
-            if (moving){
-                player.position.x = player.position.x + 3
-            }
+        if (moving){
+            player.position.x = player.position.x + 3
+        }
     }
 }
 
 //Obj Display + Movement AKA. Animation -------------------------------------------------------------------------------
 function animate(){
     window.requestAnimationFrame(animate)
-    //background.draw()
+    background.draw()
     boundaries.forEach(boundary => {
         boundary.draw()
     })
     trophy.draw()
     player.draw()
     playerMovement()
-    if (rectangleCollision({rectangle1:player, rectangle2: trophy})){
-        let finalQ = document.getElementById('pop_quiz');
-        finalQ.classList.add("open-Q");
-    }
-
 }
 animate()
 
