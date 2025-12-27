@@ -4,8 +4,8 @@ const c = canvas.getContext('2d')
 const keys = {w:{pressed: false}, a:{pressed: false}, s:{pressed: false}, d:{pressed: false}}
 
 //Game Dimension -----------------------------------------------------------
-canvas.width = 1265
-canvas.height = 576
+canvas.width = 1400
+canvas.height = 770
 
 //Declaring images
 c.fillStyle = "white"
@@ -53,7 +53,7 @@ class Boundary{ //creating wall obj/bricks
         this.height = 15
     }
     draw(){
-        c.fillStyle = 'rgba(255, 0, 0, 0)'
+        c.fillStyle = 'rgba(219, 10, 10, 0)'
         c.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
 }
@@ -135,7 +135,7 @@ function playerMovement(){
 //Obj Display + Movement AKA. Animation -------------------------------------------------------------------------------
 function animate(){
     window.requestAnimationFrame(animate)
-    background.draw()
+    //background.draw()
     boundaries.forEach(boundary => {
         boundary.draw()
     })
