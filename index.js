@@ -4,12 +4,12 @@ const c = canvas.getContext('2d')
 const keys = {w:{pressed: false}, a:{pressed: false}, s:{pressed: false}, d:{pressed: false}}
 
 //Game Dimension -----------------------------------------------------------
-canvas.width = 1400
-canvas.height = 770
+canvas.width = 1300
+canvas.height = 600
 
 //Declaring images
 c.fillStyle = "white"
-c.fillRect(-50,-50,canvas.width,canvas.height)
+c.fillRect(0,0,canvas.width,canvas.height)
 
 const image = new Image()
 image.src = './img/map.png'
@@ -34,8 +34,7 @@ class Sprite{
         //context.drawImage(playerImage, 0, 0, 48, 68, 500, 185, 48, 68)
     }
 }
-const background = new Sprite({position:{x:0, y:0}, image: image, height: 576, width:1265})
-//const player = new Sprite({position: {x: 0, y:73}, image: object, height: 38, width: 35})
+const background = new Sprite({position:{x:0, y:0}, image: image, height: 575, width: 1265})
 const trophy = new Sprite({position: {x: 1225, y:445}, image: victory, height: 45, width: 45})
 const player = new Sprite({position: {x: 30, y:20}, image: object, height: 35, width: 35})
 
@@ -81,7 +80,6 @@ function playerMovement(){
         for (let i = 0; i < boundaries.length; i++){
             const boundary = boundaries[i]
             if (rectangleCollision({rectangle1: player, rectangle2: {...boundary,position: {x:boundary.position.x,y:boundary.position.y +3}}})){
-                console.log('colliding')
                 moving = false
                 break
             } 
@@ -94,7 +92,6 @@ function playerMovement(){
             const boundary = boundaries[i]
             if (rectangleCollision({rectangle1: player, rectangle2: {...boundary,position: {x:boundary.position.x,y:boundary.position.y -3}}}))   
                 {
-                    console.log('colliding')
                     moving = false
                     break
                 }
@@ -107,7 +104,6 @@ function playerMovement(){
             const boundary = boundaries[i]
             if (rectangleCollision({rectangle1: player, rectangle2: {...boundary,position: {x:boundary.position.x+3,y:boundary.position.y}}}))   
                 {
-                    console.log('colliding')
                     moving = false
                     break
                 }
@@ -120,7 +116,6 @@ function playerMovement(){
             const boundary = boundaries[i]
             if (rectangleCollision({rectangle1: player, rectangle2: {...boundary,position: {x:boundary.position.x-3,y:boundary.position.y}}}))   
                 {
-                    console.log('colliding')
                     moving = false
                     break
                 }
@@ -186,5 +181,3 @@ window.addEventListener('keyup', (e)=> {
     }
 })
 
-
-//AI chaser
