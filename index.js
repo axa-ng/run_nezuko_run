@@ -136,6 +136,11 @@ function animate(){
     trophy.draw()
     player.draw()
     playerMovement()
+    //console.log(rectangleCollision({rectangle1: player, rectangle2: trophy}))
+    if (rectangleCollision({rectangle1: player, rectangle2: trophy})){
+        console.log('solved')
+        window.location.href = "end.html";
+    }
 }
 animate()
 
