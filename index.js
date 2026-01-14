@@ -18,7 +18,7 @@ const object = new Image()
 object.src = './img/nezuko_icon.png'
 
 const victory = new Image()
-victory.src = './img/yaki_onigiri.png'
+victory.src = './img/tanjiro_icon.png'
 
  //Sprite Object --------------------------------------------------------
 class Sprite{
